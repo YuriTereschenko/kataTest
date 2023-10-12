@@ -20,8 +20,7 @@ func main() {
 	firstNum, err := strconv.Atoi(expression[0])
 	secNum, err2 := strconv.Atoi(expression[2])
 	if err != nil && err2 == nil || err == nil && err2 != nil {
-		fmt.Println("Несовпадение типов")
-		return
+		log.Fatal("Несовпадение типов")
 	}
 	if err != nil && err2 != nil {
 		if expression[1] == "-" {
@@ -71,7 +70,7 @@ func romanToArabic(roman string) int {
 	}
 	arabic := r2a[strings.ToUpper(roman)]
 	if arabic == 0 {
-		log.Fatal(fmt.Sprintf("Введено некорректное чило: %s", roman))
+		log.Fatal(fmt.Sprintf("Введено некорректное чило: %s, переданные числа могут быть от 1 до 10 римскими или арабскими цифрами", roman))
 	}
 	return arabic
 }
